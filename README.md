@@ -1,4 +1,4 @@
-# cryptography-code
+# Cryptographic Univerysity Of Oklahoma 
 In order to run it, create an instance of the solution:
 like this 
 ```
