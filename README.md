@@ -27,7 +27,7 @@ chmod +x sagebash.sh
 and run it with ./sagebash
 
 ---you need tio change the last paramter here to ur own dir
-'''
+```
 Monique
 #!/bin/bash
 sage batchsage.py 57 1 "/home/yan/crypfinal/batch/"&
@@ -39,9 +39,9 @@ sage batchsage.py 57 6 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 7 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 8 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 0 "/home/yan/crypfinal/batch/"&
-'''
+```
 
-'''
+```
 DongDong:
 #!/bin/bash
 sage batchsage.py 23 1 "/home/yan/crypfinal/batch/"&
@@ -53,4 +53,4 @@ sage batchsage.py 23 6 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 7 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 8 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 0 "/home/yan/crypfinal/batch/"&
-'''
+```
