@@ -31,9 +31,9 @@ and run it with ./sagebash
 Monique
 #!/bin/bash
 sage batchsage.py 57 1 "/home/yan/crypfinal/batch/"&
-sage batchsage.py 57 2 "/home/yan/crypfinal/bacth/"&
+sage batchsage.py 57 2 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 3 "/home/yan/crypfinal/batch/"&
-sage batchsage.py 57 4 "/home/yan/crypfinal/bacth/"&
+sage batchsage.py 57 4 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 5 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 6 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 57 7 "/home/yan/crypfinal/batch/"&
@@ -45,9 +45,9 @@ sage batchsage.py 57 0 "/home/yan/crypfinal/batch/"&
 DongDong:
 #!/bin/bash
 sage batchsage.py 23 1 "/home/yan/crypfinal/batch/"&
-sage batchsage.py 23 2 "/home/yan/crypfinal/bacth/"&
+sage batchsage.py 23 2 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 3 "/home/yan/crypfinal/batch/"&
-sage batchsage.py 23 4 "/home/yan/crypfinal/bacth/"&
+sage batchsage.py 23 4 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 5 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 6 "/home/yan/crypfinal/batch/"&
 sage batchsage.py 23 7 "/home/yan/crypfinal/batch/"&
