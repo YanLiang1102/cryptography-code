@@ -17,7 +17,7 @@ class Solution():
     R=Integers(p);
     base=112889478113369610112883671;
     bestSolutionFactor=p;
-    def __init__(self,datadir,primebound,offset,bestnameCustom,infoOn):
+    def __init__(self,datadir,primebound,offset,expo,range1,bestnameCustom,infoOn):
         '''
         offset is used for each person to start search from a different space.
         we set the boundary prime to be 10^8 to start with.
@@ -27,7 +27,8 @@ class Solution():
         self.__offset=offset;
         self.custom=bestnameCustom;
         self.infoOn=infoOn;
-        self.offsetlog=int(log(offset*1.0,10))
+        self.range1=range1;
+        self.expo=expo;
     def getdir(self):
         return self.__datadir;
     def getOffset(self):
@@ -118,10 +119,10 @@ class Solution():
             testnumber=(basenumber).lift();
             if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s)):
                 print("I find one answer with offset expo of 10^: "+str(self.offsetlog)+"-"+str(i));
-                with open(datadir+'/'+str(self.offsetlog)+"-"+str(i)+'.data', 'wb') as output:
+                with open(datadir+'/expo-'+str(self.expo)+"-range"+str(self.range1)+'.data', 'wb') as output:
                         pickle.dump(s, output, pickle.HIGHEST_PROTOCOL)         
         #when the whole things is done,save the bestsolution to a file
-        with open(datadir+'/'+str(self.offsetlog)+self.custom+"-"+'best.data', 'wb') as output:
+        with open(datadir+'/exp-'+str(self.expo)+self.custom+"-"+'best.data', 'wb') as output:
                         pickle.dump(self.bestSolutionFactor, output, pickle.HIGHEST_PROTOCOL)
         
 def main():
@@ -133,7 +134,7 @@ def main():
     dir1=dirbase+"10-exp-"+str(expo)+"-range-"+range0;
     if not os.path.exists(dir1):
         os.makedirs(dir1)
-    sol=Solution(dir1,10**8,10**(expo1)+range1*10**4,True,range0+"-"+str(range1+1)+"10000");
+    sol=Solution(dir1,10**8,10**(expo1)+range1*10**4,expo1,range1,range0+"-"+str(range1+1)+"10000",True);
     sol.execute(10**4);
 if __name__ == "__main__":
     main()
