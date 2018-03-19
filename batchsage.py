@@ -59,10 +59,10 @@ class Solution():
         count=0;
         while(fac<10**8 and count<10**4):
             while(n%fac==0):
-                if(fac>10**8):
-                    print("try find!!");
-                if(self.infoOn):
-                    print("fac: "+str(fac));
+#                 if(fac>10**8):
+#                     print("try find!!");
+#                 if(self.infoOn):
+#                     print("fac: "+str(fac));
                 s.push(fac);
                 n=n/fac;
     
@@ -118,7 +118,7 @@ class Solution():
             basenumber=basenumber*2;
             testnumber=(basenumber).lift();
             if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s)):
-                print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
+                #print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
                 with open(datadir+'/expo-'+str(self.expo)+"-range"+str(self.range1)+"-"+str(i)+'.data', 'wb') as output:
                         pickle.dump(s, output, pickle.HIGHEST_PROTOCOL)         
         #when the whole things is done,save the bestsolution to a file
@@ -134,7 +134,7 @@ def main():
     dir1=dirbase+"10-exp-"+str(expo)+"-range-"+range0;
     if not os.path.exists(dir1):
         os.makedirs(dir1)
-    sol=Solution(dir1,10**8,10**(expo1)+range1*10**4,expo1,range1,range0+"-"+str(range1+1)+"10000",True);
+    sol=Solution(dir1,10**8,10**(expo1)+range1*10**4,expo1,range1,range0+"-"+str(range1+1)+"10000",False);
     sol.execute(10**4);
 if __name__ == "__main__":
     main()
