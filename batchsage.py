@@ -70,10 +70,13 @@ class Solution():
                 fac=next_prime(fac)
                 #print(fac);
             else:
-                count=count+1
-                try1=self.random_between(log(1.0*n,2),n);
-                fac=next_prime(try1)
-                #print("try: "+str(fac));
+#                 count=count+1
+#                 try1=self.random_between(log(1.0*n,2),n);
+#                 fac=next_prime(try1)
+#                 while n%fac==0:
+#                     s.push(fac);
+#                     n=n/fac;
+                    
         if(self.is_prime_fermat(n)):
             print(n)
             if(n<self.bestSolutionFactor):
