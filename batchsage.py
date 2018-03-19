@@ -112,7 +112,7 @@ class Solution():
         boundaryForPrime=self.getPrimeBound();
         datadir=self.getdir();
         for i in range(0,looprounds+1):
-            print("workon: "+str(i));
+            #print("workon: "+str(i));
             s=Stack();
             #after this operation the number is still under the ring R, so still need to lift
             basenumber=basenumber*2;
