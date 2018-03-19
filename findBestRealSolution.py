@@ -34,7 +34,7 @@ def findTheRealSmallestPrime(rootdir,globalbest):
     #store the solution dictionary and the best solution find on disk.
     solutionDictionary["solutioncount"]=solutioncount;
     solutionDictionary["globalbest"]=globalbest;
-    randomstring= random = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
+    randomstring=''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
     with open(rootdir+"/best-"+randomstring+".best", 'wb') as output:
                         pickle.dump(solutionDictionary, output, pickle.HIGHEST_PROTOCOL)
 
