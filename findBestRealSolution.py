@@ -22,7 +22,7 @@ def findTheRealSmallestPrime(rootdir):
             for file in files:
                  currentfile=os.path.join(subdir,file)
                  with open(currentfile  , 'rb') as inputdata:
-                    data=pickle.load(inputputdata,pickle.HIGHEST_PROTOCOL)
+                    data=pickle.load(inputdata,pickle.HIGHEST_PROTOCOL)
                     first=data.pop()
                     if first.is_prime():
                         globalbest=Math.min(globalbest,first);
