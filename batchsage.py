@@ -118,7 +118,7 @@ class Solution():
             basenumber=basenumber*2;
             testnumber=(basenumber).lift();
             if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s)):
-                print("I find one answer with offset expo of 10^: "+str(self.offsetlog)+"-"+str(i));
+                print("I find one answer with offset expo of 10^: "+str(self.expo)+"-"+str(i));
                 with open(datadir+'/expo-'+str(self.expo)+"-range"+str(self.range1)+'.data', 'wb') as output:
                         pickle.dump(s, output, pickle.HIGHEST_PROTOCOL)         
         #when the whole things is done,save the bestsolution to a file
