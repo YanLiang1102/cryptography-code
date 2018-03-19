@@ -27,7 +27,8 @@ def findTheRealSmallestPrime(rootdir,globalbest):
                     data=pickle.load(inputdata)
                     first=data.pop()
                     if first.is_prime():
-                        globalbest=Math.min(globalbest,first);
+                        if first<globalbest:
+                            globalbest=first
                         solutioncount=solutioncount+1;
                         solutionDictionary[str(first)]=file;                          
     #store the solution dictionary and the best solution find on disk.
