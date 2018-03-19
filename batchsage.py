@@ -91,12 +91,19 @@ class Solution():
                 
         
     def is_prime_fermat(self,n):
+        '''
+        among my test I find like 189 pseudo solutions but only 3 of them are real, and we need to write everything on disk
+        so make another test for R(3)
+        '''
         #need to recontruct the ring with the special n
         R1=Integers(n)
-        if(R1(2)**(n-1)==1):
-            return True;
-        else:
+        if(R1(2)**(n-1)!=1):
             return False;
+        else:
+            if(R1(3)**(n-1)==1):
+                return True;
+            else:
+                return False;
     def execute(self,looprounds):
         '''
         so we begin A=27 digits,which is (2^10)^9 so it is 2^90,
