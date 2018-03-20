@@ -183,7 +183,7 @@ def main():
     dir1=dirbase+"10-exp-"+str(expo)+"-range-"+range0;
     if not os.path.exists(dir1):
         os.makedirs(dir1)
-    sol=Solution(dir1,10**8,10**(expo1)+range1*10**4,expo1,range1,range0+"-"+str(range1+1)+"10000",False);
+    sol=Solution(dir1,10**7,10**(expo1)+range1*10**4,expo1,range1,range0+"-"+str(range1+1)+"10000",False);
     sol.execute(10**4);
 if __name__ == "__main__":
     main()
