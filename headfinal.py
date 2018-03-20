@@ -167,7 +167,7 @@ class Solution():
         #upperbound=lowerbound+self.splitrange;
         basenumber=self.R(2)**lowerbound;
         for i in range(0,self.splitrange):
-            print("workon: "+str(i));
+            #print("workon: "+str(i));
             s=Stack();
             #after this operation the number is still under the ring R, so still need to lift
             basenumber=basenumber*2;
@@ -184,7 +184,7 @@ def main():
     intsplitfrom=int(splitfrom);
     dirbase=sys.argv[4];
     rangestart=sys.argv[3]; #will be like 0,....98
-    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart;
+    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart+"-depth-"+str(self.moredepth);
     if not os.path.exists(dir1):
         os.makedirs(dir1)
     #10**7 is our limit for the small factor exploring.
