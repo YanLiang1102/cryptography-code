@@ -80,13 +80,41 @@ class Solution():
                 s.push(fac)
                 n=n/fac;
          #reset count;
-         count=0;
+        count=0;
         while(fac<limit*100 and count<10^4):
             count=count+1
-            fac=next_prime(fac+2000)
+            fac=next_prime(fac+10000)
             while(n%fac==0):
                 s.push(fac)
-                n=n/fac;               
+                n=n/fac;
+         count=0;
+         while(fac<limit*(10**3) and count<10^6):
+            count=count+1
+            fac=next_prime(fac+10**5)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;  
+         count=0;
+         while(fac<limit*(10**4) and count<10^5):
+            count=count+1
+            fac=next_prime(fac+10**6)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;  
+         count=0;
+         while(fac<limit*(10**5) and count<10^4):
+            count=count+1
+            fac=next_prime(fac+10**7)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
+         count=0;
+         while(fac<limit*(10**6) and count<10^3):
+            count=count+1
+            fac=next_prime(fac+10**8)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
         if(self.is_prime_fermat(n)):
             print(n)
             if(n<self.bestSolutionFactor):
