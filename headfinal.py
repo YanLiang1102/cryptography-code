@@ -183,12 +183,13 @@ def main():
     splitfrom=sys.argv[2]; #will be 10^8
     intsplitfrom=int(splitfrom);
     dirbase=sys.argv[4];
+    moredepth=2;
     rangestart=sys.argv[3]; #will be like 0,....98
-    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart+"-depth-"+str(self.moredepth);
+    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart+"-depth-"+str(moredepth);
     if not os.path.exists(dir1):
         os.makedirs(dir1)
     #10**7 is our limit for the small factor exploring.
-    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,2);
+    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,moredepth);
     sol.execute();
 if __name__ == "__main__":
     main()
