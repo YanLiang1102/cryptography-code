@@ -15,6 +15,7 @@ def exploreTheBestResult(bestfilename):
     data=pickle.load(open(bestfilename,"rb"))
     print(data["globalbest"]);
     print(data["solutioncount"]);
+    print(data["bestfile"]);
 
 def main():
     bestfilename=sys.argv[1]
