@@ -149,7 +149,7 @@ class Solution():
                 return True;
             else:
                 return False;
-    def execute(self,looprounds):
+    def execute(self):
         '''
         so we begin A=27 digits,which is (2^10)^9 so it is 2^90,
         and A can goes as big as 2^1024, and each time you multiply 2, we just add 1 to 2^90,
@@ -189,7 +189,7 @@ def main():
         os.makedirs(dir1)
     #10**7 is our limit for the small factor exploring.
     sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,2);
-    sol.execute(intsplitrange);
+    sol.execute();
 if __name__ == "__main__":
     main()
         
