@@ -39,6 +39,7 @@ def findTheRealSmallestPrime(rootdir,globalbest):
     randomstring=''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
     with open(rootdir+"/best-"+randomstring+".best", 'wb') as output:
                         pickle.dump(solutionDictionary, output, pickle.HIGHEST_PROTOCOL)
+                        print(rootdir+"/best-"+randomstring+".best")
 
 def main():
     rootdir=sys.argv[1]
