@@ -57,7 +57,7 @@ class Solution():
     def find_factor_psudeo(self,n,fac,limit,s):
         #while(fac<limit):
         count=0;
-        while(fac<10**8 and count<10**4):
+        while(fac<limit):
             while(n%fac==0):
 #                 if(fac>10**8):
 #                     print("try find!!");
@@ -65,18 +65,28 @@ class Solution():
 #                     print("fac: "+str(fac));
                 s.push(fac);
                 n=n/fac;
-    
             if(fac<limit):
                 fac=next_prime(fac)
-                #print(fac);
-            else:
-#                 count=count+1
-#                 try1=self.random_between(log(1.0*n,2),n);
-#                 fac=next_prime(try1)
-#                 while n%fac==0:
-#                     s.push(fac);
-#                     n=n/fac;
-                    
+       while(fac<limit*10 and count<10^4):
+            count=count+1
+            fac=next_prime(fac+1000)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
+        while(fac<limit*10 and count<10^4):
+            count=count+1
+            fac=next_prime(fac+1000)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
+         #reset count;
+         count=0;
+         while(fac<limit*100 and count<10^4):
+            count=count+1
+            fac=next_prime(fac+2000)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;               
         if(self.is_prime_fermat(n)):
             print(n)
             if(n<self.bestSolutionFactor):
