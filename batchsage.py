@@ -137,12 +137,12 @@ class Solution():
         for depth in range(1,self.moredepth+1):
             count=0
             while(fac<limit*(10**(8+depth)) and count<10**3):
-            count=count+1
+                count=count+1
             #8+7-1=14
-            fac=next_prime(fac+10**(depth+11))
-            while(n%fac==0):
-                s.push(fac)
-                n=n/fac;
+                fac=next_prime(fac+10**(depth+11))
+                while(n%fac==0):
+                    s.push(fac)
+                    n=n/fac;
         if(self.is_prime_fermat(n)):
             print(n)
             if(n<self.bestSolutionFactor):
