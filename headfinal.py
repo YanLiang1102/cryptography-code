@@ -163,7 +163,7 @@ class Solution():
         #basenumber=self.R(2)**self.base;
         boundaryForPrime=self.getPrimeBound();
         datadir=self.getdir();
-        lowerbound=self.base+self.rangestart*self.splitrange;
+        lowerbound=self.base*self.splitfrom+self.rangestart*self.splitrange;
         #upperbound=lowerbound+self.splitrange;
         basenumber=self.R(2)**lowerbound;
         for i in range(0,self.splitrange):
