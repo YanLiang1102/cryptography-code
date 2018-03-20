@@ -1,6 +1,7 @@
 import sys
 import os
 import pickle
+from sage.all import *
 class Stack():
     def __init__(self):
         self.__storage = []
