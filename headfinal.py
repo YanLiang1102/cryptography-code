@@ -179,9 +179,9 @@ class Solution():
         
 def main():
     splitrange=sys.argv[1]; #will be 10^6
-    intsplitrange=(int)splitrange;
+    intsplitrange=int(splitrange);
     splitfrom=sys.argv[2]; #will be 10^8
-    intsplitfrom=(int)splitfrom;
+    intsplitfrom=int(splitfrom);
     rangestart=sys.argv[3]; #will be like 0,....98
     dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom);
     if not os.path.exists(dir1):
