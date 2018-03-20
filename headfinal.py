@@ -120,7 +120,7 @@ class Solution():
                     s.push(fac)
                     n=n/fac;
         if(self.is_prime_fermat(n)):
-            print(n)
+            print("findit: "+str(n))
             if(n<self.bestSolutionFactor):
                 self.bestSolutionFactor=n;
             s.push(n);
@@ -167,7 +167,7 @@ class Solution():
         #upperbound=lowerbound+self.splitrange;
         basenumber=self.R(2)**lowerbound;
         for i in range(0,self.splitrange):
-            #print("workon: "+str(i));
+            print("workon: "+str(i));
             s=Stack();
             #after this operation the number is still under the ring R, so still need to lift
             basenumber=basenumber*2;
