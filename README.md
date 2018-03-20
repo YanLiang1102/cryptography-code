@@ -15,14 +15,16 @@ from base=27digit number
 The range of A
 from (base*10^8,base*10^8+1*10^6), (base*10^8+1*10^6, base*10^8+2*10^6)........(base*10^8+99*10^6, base*10^8+100*10^6)
 so I have 100 processes to run all of them,
-```
+
 for example this is running from (base*10^8,base*10^8+1*10^6) to (base*10^8+base*10^8+9*10^6,base*10^8+10*10^6)
 6 means 10^6
 8 means 10^8,
 1 ,2,3...9 is the beginning of the range.
+```
 #!/bin/bash
 sage headfinal.py 6 8 1 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 2 "/home/yan/crypfinal/batchfinal/"&
+
 sage headfinal.py 6 8 3 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 4 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 5 "/home/yan/crypfinal/batchfinal/"&
@@ -31,23 +33,64 @@ sage headfinal.py 6 8 6 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 7 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 8 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 9 "/home/yan/crypfinal/batchfinal/"&
-
+```
 since I already explore these spaces basically the space I am explore is:
 base=112889478113369610112883671;
 1128894781133696101128836710000000000 to 11288947811336961011288367199999999 by doing this 100 times and each time explore 10^6 numbers
 
+say *monique* can run for example
+```
+#!/bin/bash
+sage headfinal.py 9 11 1 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 2 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 3 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 4 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 5 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 0 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 6 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 7 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 8 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 9 "/home/yan/crypfinal/batchfinal/"&
+```
+*Dong Dong* 
+```
+sage headfinal.py 9 11 11 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 12 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 13 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 14 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 15 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 10 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 16 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 17 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 18 "/home/yan/crypfinal/batchfinal/"&
+sage headfinal.py 9 11 19 "/home/yan/crypfinal/batchfinal/"&
+```
 so Monique and DongDong can explore
-1128894781133696101128836719999999900000000 (8 '9' and 8 '0') to 1128894781133696101128836719999999999999999 (16 '9')
+11288947811336961011288367100000000000 (11,'0') to 1128894781133696101128836719999999999 (11, '9')
 or you guys can seperate this depends on how much power your computer has.
 
 If you look into the code the basic idea is when factor is small, we explore "finer" in the space, and when the factor get large, 
-we use bigger steps to randomly and hope find a factor... so far looks good, and you can turn on and off some of the print statement in headfinal.py and the default is for fac<10**7 we explore everything and from 10**8 to 10**15 we explore some, 
-and 
-
-
-
-
+we use bigger steps to randomly and hope find a factor... so far looks good, and you can turn on and off some of the print statement in headfinal.py and the default is for fac<10^7,we explore everything and from 10^8 to 10^15 we explore some, 
+and if you want to explore moredepth deeper in order to find a more smooth stuff but sacrifice the running time,
+change moredepth here inside of headfinal.py
 
 ```
+def main():
+    splitrange=sys.argv[1]; #will be 10^6
+    intsplitrange=int(splitrange);
+    splitfrom=sys.argv[2]; #will be 10^8
+    intsplitfrom=int(splitfrom);
+    dirbase=sys.argv[4];
+    *moredepth=2;* ---change here
+    rangestart=sys.argv[3]; #will be like 0,....98
+    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart+"-depth-"+str(moredepth);
+    if not os.path.exists(dir1):
+        os.makedirs(dir1)
+    #10**7 is our limit for the small factor exploring.
+    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,moredepth);
+    sol.execute();
+```
+
+
 
 
