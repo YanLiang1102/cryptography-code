@@ -187,7 +187,7 @@ def main():
     if not os.path.exists(dir1):
         os.makedirs(dir1)
     #10**7 is our limit for the small factor exploring.
-    sol=Solution(dir1,10**7,intsplitrange,intsplitfrom,rangestart,False,2);
+    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,rangestart,False,2);
     sol.execute(intsplitrange);
 if __name__ == "__main__":
     main()
