@@ -81,7 +81,7 @@ def main():
     splitfrom=sys.argv[2]; #will be 10^8
     intsplitfrom=int(splitfrom);
     dirbase=sys.argv[4];
-    *moredepth=2;* ---change here
+    **moredepth=2;** ---change here
     rangestart=sys.argv[3]; #will be like 0,....98
     dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart+"-depth-"+str(moredepth);
     if not os.path.exists(dir1):
