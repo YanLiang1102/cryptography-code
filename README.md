@@ -62,7 +62,7 @@ then explore range from offset 3*10^6 to 4*10^6
 ...
 until explore range from offset 98*10^6 to 99*10^6
 
-in that way we estimately explore 10*6*100=100 milllion records, and they can be run on 100 cores.
+in that way we estimately explore 10^6*100=100 milllion records, and they can be run on 100 cores.
 
 
 
