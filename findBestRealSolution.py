@@ -19,6 +19,8 @@ class Stack():
 def findTheRealSmallestPrime(rootdir,globalbest):
     solutionDictionary={}
     solutioncount=0;
+    bestfile="";
+    globalbest="";
     #looping through all the files under the dir
     for subdir, dirs, files in os.walk(rootdir):
             for file in files:
