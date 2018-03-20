@@ -67,7 +67,7 @@ class Solution():
                 n=n/fac;
             if(fac<limit):
                 fac=next_prime(fac)
-       while(fac<limit*10 and count<10^4):
+        while(fac<limit*10 and count<10^4):
             count=count+1
             fac=next_prime(fac+1000)
             while(n%fac==0):
@@ -81,7 +81,7 @@ class Solution():
                 n=n/fac;
          #reset count;
          count=0;
-         while(fac<limit*100 and count<10^4):
+        while(fac<limit*100 and count<10^4):
             count=count+1
             fac=next_prime(fac+2000)
             while(n%fac==0):
