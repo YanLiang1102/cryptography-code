@@ -17,7 +17,7 @@ class Solution():
     R=Integers(p);
     base=112889478113369610112883671;
     bestSolutionFactor=p;
-    def __init__(self,datadir,primebound,offset,expo,range1,bestnameCustom,infoOn):
+    def __init__(self,datadir,primebound,offset,expo,range1,bestnameCustom,infoOn,moredepth):
         '''
         offset is used for each person to start search from a different space.
         we set the boundary prime to be 10^8 to start with.
@@ -29,6 +29,7 @@ class Solution():
         self.infoOn=infoOn;
         self.range1=range1;
         self.expo=expo;
+        self.moredepth=moredepth;
     def getdir(self):
         return self.__datadir;
     def getOffset(self):
@@ -54,7 +55,7 @@ class Solution():
 #             return True;
 #         else:
 #             return False;
-    def find_factor_psudeo(self,n,fac,limit,s):
+    def find_factor_psudeo(self,n,fac,limit,s,moredepth):
         #while(fac<limit):
         count=0;
         while(fac<limit):
@@ -112,7 +113,33 @@ class Solution():
         count=0;
         while(fac<limit*(10**6) and count<10**3):
             count=count+1
-            fac=next_prime(fac+10**8)
+            fac=next_prime(fac+10**9)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
+        count=0;
+        #depth=-1
+        while(fac<limit*(10**7) and count<10**3):
+            count=count+1
+            fac=next_prime(fac+10**10)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
+        count=0;
+        #depth=0;
+        while(fac<limit*(10**8) and count<10**3):
+            count=count+1
+            fac=next_prime(fac+10**11)
+            while(n%fac==0):
+                s.push(fac)
+                n=n/fac;
+        #max depth is 10^300,depth at most need to be 150, since the prime at most can be square root
+        for depth in range(1,self.moredepth+1):
+            count=0
+            while(fac<limit*(10**(8+depth)) and count<10**3):
+            count=count+1
+            #8+7-1=14
+            fac=next_prime(fac+10**(depth+11))
             while(n%fac==0):
                 s.push(fac)
                 n=n/fac;
@@ -166,7 +193,7 @@ class Solution():
             #after this operation the number is still under the ring R, so still need to lift
             basenumber=basenumber*2;
             testnumber=(basenumber).lift();
-            if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s)):
+            if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s,self.moredepth)):
                 #print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
                 with open(datadir+'/expo-'+str(self.expo)+"-range"+str(self.range1)+"-"+str(i)+'.data', 'wb') as output:
                         pickle.dump(s, output, pickle.HIGHEST_PROTOCOL)         
@@ -183,7 +210,7 @@ def main():
     dir1=dirbase+"10-exp-"+str(expo)+"-range-"+range0;
     if not os.path.exists(dir1):
         os.makedirs(dir1)
-    sol=Solution(dir1,10**7,10**(expo1)+range1*10**6,expo1,range1,range0+"-"+str(range1+1)+"1000000",False);
+    sol=Solution(dir1,10**7,10**(expo1)+range1*10**6,expo1,range1,range0+"-"+str(range1+1)+"1000000",False,2);
     sol.execute(10**6);
 if __name__ == "__main__":
     main()
