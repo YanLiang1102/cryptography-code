@@ -26,7 +26,9 @@ def findTheRealSmallestPrime(rootdir,globalbest):
                  with open(currentfile  , 'rb') as inputdata:
                     data=pickle.load(inputdata)
                     first=data.pop()
+                    print(first)
                     if first.is_prime():
+                        print("yes")
                         if first<globalbest:
                             globalbest=first
                         solutioncount=solutioncount+1;
