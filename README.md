@@ -33,6 +33,18 @@ sage headfinal.py 6 8 8 "/home/yan/crypfinal/batchfinal/"&
 sage headfinal.py 6 8 9 "/home/yan/crypfinal/batchfinal/"&
 
 since I already explore these spaces basically the space I am explore is:
+base=112889478113369610112883671;
+1128894781133696101128836710000000000 to 11288947811336961011288367199999999 by doing this 100 times and each time explore 10^6 numbers
+
+so Monique and DongDong can explore
+1128894781133696101128836719999999900000000 (8 '9' and 8 '0') to 1128894781133696101128836719999999999999999 (16 '9')
+or you guys can seperate this depends on how much power your computer has.
+
+If you look into the code the basic idea is when factor is small, we explore "finer" in the space, and when the factor get large, 
+we use bigger steps to randomly and hope find a factor... so far looks good, and you can turn on and off some of the print statement in headfinal.py and the default is for fac<10**7 we explore everything and from 10**8 to 10**15 we explore some, 
+and 
+
+
 
 
 
