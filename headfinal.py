@@ -120,7 +120,7 @@ class Solution():
                     s.push(fac)
                     n=n/fac;
         if(self.is_prime_fermat(n)):
-            print(n)
+            print("findit: "+str(n))
             if(n<self.bestSolutionFactor):
                 self.bestSolutionFactor=n;
             s.push(n);
@@ -149,7 +149,7 @@ class Solution():
                 return True;
             else:
                 return False;
-    def execute(self,looprounds):
+    def execute(self):
         '''
         so we begin A=27 digits,which is (2^10)^9 so it is 2^90,
         and A can goes as big as 2^1024, and each time you multiply 2, we just add 1 to 2^90,
@@ -167,7 +167,7 @@ class Solution():
         #upperbound=lowerbound+self.splitrange;
         basenumber=self.R(2)**lowerbound;
         for i in range(0,self.splitrange):
-            #print("workon: "+str(i));
+            print("workon: "+str(i));
             s=Stack();
             #after this operation the number is still under the ring R, so still need to lift
             basenumber=basenumber*2;
@@ -184,12 +184,12 @@ def main():
     intsplitfrom=int(splitfrom);
     dirbase=sys.argv[3];
     rangestart=sys.argv[3]; #will be like 0,....98
-    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom);
+    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart;
     if not os.path.exists(dir1):
         os.makedirs(dir1)
     #10**7 is our limit for the small factor exploring.
-    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,rangestart,False,2);
-    sol.execute(intsplitrange);
+    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,2);
+    sol.execute();
 if __name__ == "__main__":
     main()
         
