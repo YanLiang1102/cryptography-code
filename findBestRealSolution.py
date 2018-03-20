@@ -23,9 +23,9 @@ def findTheRealSmallestPrime(rootdir,globalbest):
     for subdir, dirs, files in os.walk(rootdir):
             for file in files:
                  currentfile=os.path.join(subdir,file)
-                 with open(currentfile  , 'rb') as inputdata:
-                    data=pickle.load(inputdata)
-                    first=data.pop()
+                 with open(currentfile,'rb') as inputdata:
+                    data1=pickle.load(inputdata)
+                    first=data1.pop();
                     #print(first)
                     if first.is_prime():
                         #print("yes")
