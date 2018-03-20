@@ -81,35 +81,36 @@ class Solution():
                 n=n/fac;
          #reset count;
         count=0;
-        while(fac<limit*100 and count<10^4):
+        while(fac<limit*100 and count<10**4):
             count=count+1
-            fac=next_prime(fac+10000)
+            fac=next_prime(fac+10**4)
             while(n%fac==0):
                 s.push(fac)
                 n=n/fac;
          count=0;
-         while(fac<limit*(10**3) and count<10^6):
+        #linit=10^7, 3+7=10, so each is 10^9--10^10, need to jump 9*10^9
+         while(fac<limit*(10**3) and count<10**4):
             count=count+1
             fac=next_prime(fac+10**5)
             while(n%fac==0):
                 s.push(fac)
                 n=n/fac;  
          count=0;
-         while(fac<limit*(10**4) and count<10^5):
+         while(fac<limit*(10**4) and count<10**4):
             count=count+1
             fac=next_prime(fac+10**6)
             while(n%fac==0):
                 s.push(fac)
                 n=n/fac;  
          count=0;
-         while(fac<limit*(10**5) and count<10^4):
+         while(fac<limit*(10**5) and count<10**4):
             count=count+1
             fac=next_prime(fac+10**7)
             while(n%fac==0):
                 s.push(fac)
                 n=n/fac;
          count=0;
-         while(fac<limit*(10**6) and count<10^3):
+         while(fac<limit*(10**6) and count<10**3):
             count=count+1
             fac=next_prime(fac+10**8)
             while(n%fac==0):
