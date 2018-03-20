@@ -17,18 +17,21 @@ class Solution():
     R=Integers(p);
     base=112889478113369610112883671;
     bestSolutionFactor=p;
-    def __init__(self,datadir,primebound,offset,expo,range1,bestnameCustom,infoOn,moredepth):
+    def __init__(self,datadir,primebound,splitrange,splitfrom,rangestart,infoOn,moredepth):
         '''
         offset is used for each person to start search from a different space.
         we set the boundary prime to be 10^8 to start with.
         '''
         self.__datadir=datadir;
         self.__primebound=primebound;
-        self.__offset=offset;
-        self.custom=bestnameCustom;
+        #self.__offset=offset;
+        #self.custom=bestnameCustom;
         self.infoOn=infoOn;
-        self.range1=range1;
-        self.expo=expo;
+        #self.range1=range1;
+        #self.expo=expo;
+        self.splitfrom=splitfrom;
+        self.splitrange=splitrange;
+        self.rangestart=rangestart;
         self.moredepth=moredepth;
     def getdir(self):
         return self.__datadir;
@@ -39,42 +42,15 @@ class Solution():
         return a
     def getPrimeBound(self):
         return self.__primebound;
-#     def find_factor_psudeo(self,n,fac,limit,s):
-#         while(fac<limit):
-#             while(n%fac==0):
-#                 if(self.infoOn):
-#                     print(fac);
-#                 s.push(fac);
-#                 n=n/fac;
-#             fac=next_prime(fac)
-#         if(self.is_prime_fermat(n)):
-#             print(n)
-#             if(n<self.bestSolutionFactor):
-#                 self.bestSolutionFactor=n;
-#             s.push(n);
-#             return True;
-#         else:
-#             return False;
     def find_factor_psudeo(self,n,fac,limit,s,moredepth):
-        #while(fac<limit):
         count=0;
         while(fac<limit):
             while(n%fac==0):
-#                 if(fac>10**8):
-#                     print("try find!!");
-#                 if(self.infoOn):
-#                     print("fac: "+str(fac));
                 s.push(fac);
                 n=n/fac;
             if(fac<limit):
                 fac=next_prime(fac)
-        while(fac<limit*10 and count<10^4):
-            count=count+1
-            fac=next_prime(fac+1000)
-            while(n%fac==0):
-                s.push(fac)
-                n=n/fac;
-        while(fac<limit*10 and count<10^4):
+        while(fac<limit*10 and count<10**4):
             count=count+1
             fac=next_prime(fac+1000)
             while(n%fac==0):
@@ -182,12 +158,15 @@ class Solution():
         dong dong is from [2*10^12+1,3*10^12], each person explore like 10^!2 numbers
         so say the offset for monique will be 10^!2, and for dongdong will be 2*10^12,for yan it is 0
         '''
-        offset=self.getOffset();
-        self.base=self.base+offset;
-        basenumber=self.R(2)**self.base;
+        #offset=self.getOffset();
+        #self.base=self.base+offset;
+        #basenumber=self.R(2)**self.base;
         boundaryForPrime=self.getPrimeBound();
         datadir=self.getdir();
-        for i in range(0,looprounds+1):
+        lowerbound=self.base+self.rangestart*self.splitrange;
+        #upperbound=lowerbound+self.splitrange;
+        basenumber=self.R(2)**lowerbound;
+        for i in range(0,self.splitrange):
             #print("workon: "+str(i));
             s=Stack();
             #after this operation the number is still under the ring R, so still need to lift
@@ -195,27 +174,21 @@ class Solution():
             testnumber=(basenumber).lift();
             if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s,self.moredepth)):
                 #print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
-                with open(datadir+'/expo-'+str(self.expo)+"-range"+str(self.range1)+"-"+str(i)+'.data', 'wb') as output:
+                with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-offset-"+str(self.rangestart)+str(i)+'.data', 'wb') as output:
                         pickle.dump(s, output, pickle.HIGHEST_PROTOCOL)         
-        #when the whole things is done,save the bestsolution to a file
-        with open(datadir+'/exp-'+str(self.expo)+self.custom+"-"+'best.data', 'wb') as output:
-                        pickle.dump(self.bestSolutionFactor, output, pickle.HIGHEST_PROTOCOL)
         
 def main():
     splitrange=sys.argv[1]; #will be 10^6
+    intsplitrange=(int)splitrange;
     splitfrom=sys.argv[2]; #will be 10^8
+    intsplitfrom=(int)splitfrom;
     rangestart=sys.argv[3]; #will be like 0,....98
-    ######wrong
-    expo=sys.argv[1]
-    range0=sys.argv[2]
-    dirbase=sys.argv[3]
-    expo1=int(expo)
-    range1=int(range0)
-    dir1=dirbase+"10-exp-"+str(expo)+"-range-"+range0;
+    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom);
     if not os.path.exists(dir1):
         os.makedirs(dir1)
-    sol=Solution(dir1,10**7,10**(expo1)+range1*10**6,expo1,range1,range0+"-"+str(range1+1)+"1000000",False,2);
-    sol.execute(10**6);
+    #10**7 is our limit for the small factor exploring.
+    sol=Solution(dir1,10**7,intsplitrange,intsplitfrom,rangestart,False,2);
+    sol.execute(intsplitrange);
 if __name__ == "__main__":
     main()
         
