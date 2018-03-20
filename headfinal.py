@@ -174,7 +174,7 @@ class Solution():
             testnumber=(basenumber).lift();
             if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s,self.moredepth)):
                 #print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
-                with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-offset-"+str(self.rangestart)+str(i)+'.data', 'wb') as output:
+                with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-offset-"+str(self.rangestart)+"-index-"+str(i)+'.data', 'wb') as output:
                         pickle.dump(s, output, pickle.HIGHEST_PROTOCOL)         
         
 def main():
