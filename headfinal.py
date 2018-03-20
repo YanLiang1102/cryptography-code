@@ -202,6 +202,10 @@ class Solution():
                         pickle.dump(self.bestSolutionFactor, output, pickle.HIGHEST_PROTOCOL)
         
 def main():
+    splitrange=sys.argv[1]; #will be 10^6
+    splitfrom=sys.argv[2]; #will be 10^8
+    rangestart=sys.argv[3]; #will be like 0,....98
+    ######wrong
     expo=sys.argv[1]
     range0=sys.argv[2]
     dirbase=sys.argv[3]
