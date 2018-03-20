@@ -184,11 +184,11 @@ def main():
     intsplitfrom=int(splitfrom);
     dirbase=sys.argv[3];
     rangestart=sys.argv[3]; #will be like 0,....98
-    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom);
+    dir1=dirbase+"total-"+str(splitrange)+"-into-"+str(splitfrom)+"-offset-"+rangestart;
     if not os.path.exists(dir1):
         os.makedirs(dir1)
     #10**7 is our limit for the small factor exploring.
-    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,rangestart,False,2);
+    sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,2);
     sol.execute(intsplitrange);
 if __name__ == "__main__":
     main()
