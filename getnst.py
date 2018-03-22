@@ -4,14 +4,29 @@ import os
 import random
 import string
 import math
+
+def is_prime_fermat(n):
+        '''
+        among my test I find like 189 pseudo solutions but only 3 of them are real, and we need to write everything on disk
+        so make another test for R(3)
+        '''
+        #need to recontruct the ring with the special n
+        R1=Integers(n)
+        if(R1(2)**(n-1)!=1):
+            return False;
+        else:
+            if(R1(3)**(n-1)==1):
+                return True;
+            else:
+                return False;
+ 
 def find_factor_psudeo(n,fac,limit,moredepth):
         count=0;
         while(fac<limit):
             while(n%fac==0):
                 print(fac);
                 n=n/fac;
-            if(fac<limit):
-                fac=next_prime(fac)
+            fac=next_prime(fac)
         while(fac<limit*10 and count<10**4):
             count=count+1
             fac=next_prime(fac+1000)
@@ -81,8 +96,9 @@ def find_factor_psudeo(n,fac,limit,moredepth):
                 while(n%fac==0):
                     print(fac)
                     n=n/fac;
+        print("remaining from the algorithms:"+str(n));
         if(is_prime_fermat(n)):
-            print("yes it is prime: "+str(n));
+            print("yes it is prime");
             return True;
         else:
             print("it is not a prime");
@@ -90,20 +106,7 @@ def find_factor_psudeo(n,fac,limit,moredepth):
 
             
                 
-def is_prime_fermat(n):
-        '''
-        among my test I find like 189 pseudo solutions but only 3 of them are real, and we need to write everything on disk
-        so make another test for R(3)
-        '''
-        #need to recontruct the ring with the special n
-        R1=Integers(n)
-        if(R1(2)**(n-1)!=1):
-            return False;
-        else:
-            if(R1(3)**(n-1)==1):
-                return True;
-            else:
-                return False;
+
 def getFactorizationBest(bestexpo,p):
     R=Integers(p);
     data=(R(2)**bestexpo).lift();
