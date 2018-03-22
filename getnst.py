@@ -81,7 +81,7 @@ def find_factor_psudeo(n,fac,limit,moredepth):
                 while(n%fac==0):
                     print(fac)
                     n=n/fac;
-        if(self.is_prime_fermat(n)):
+        if(is_prime_fermat(n)):
             return True;
         else:
             return False;
