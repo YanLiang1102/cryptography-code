@@ -24,6 +24,11 @@ def fetchBest(rootdir,globalbest):
     print("best bit: "+str(solutionDictionary["bit"]));
     print("best expo: "+str(bestexpo));
     print("best remaining is:"+str(globalbest));
+def getFactorizationBest(bestexpo,p):
+    R=Integers(p);
+    data=(R(2)^bestexpo).lift();
+    
+    
     
 def main():
     rootdir=sys.argv[1]
