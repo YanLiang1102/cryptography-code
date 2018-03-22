@@ -72,7 +72,7 @@ def find_factor_psudeo(n,fac,limit,moredepth):
                 print(fac);
                 n=n/fac;
         #max depth is 10^300,depth at most need to be 150, since the prime at most can be square root
-        for depth in range(1,self.moredepth+1):
+        for depth in range(1,moredepth+1):
             count=0
             while(fac<limit*(10**(8+depth)) and count<10**3):
                 count=count+1
