@@ -58,7 +58,7 @@ def fetchBest(rootdir):
                     #print(first)
                     #if first.is_prime():
                         #print("yes")
-                    if first<bestbit:
+                    if bit<bestbit:
                         bestbit=bit
                         bestexpo=expo;
                         #bestfile=currentfile
