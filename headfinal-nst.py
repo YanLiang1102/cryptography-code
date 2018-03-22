@@ -42,7 +42,7 @@ class Solution():
         return a
     def getPrimeBound(self):
         return self.__primebound;
-    def find_factor_psudeo(self,n,fac,limit,s,moredepth):
+    def find_factor_psudeo(self,n,fac,limit,moredepth):
         count=0;
         while(fac<limit):
             while(n%fac==0):
@@ -172,7 +172,7 @@ class Solution():
             #after this operation the number is still under the ring R, so still need to lift
             basenumber=basenumber*2;
             testnumber=(basenumber).lift();
-            if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s,self.moredepth)):
+            if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,self.moredepth)):
                 bestindex=i;
                 #print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
         result={};
