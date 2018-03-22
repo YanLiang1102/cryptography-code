@@ -85,6 +85,7 @@ def find_factor_psudeo(n,fac,limit,moredepth):
             print("yes it is prime: "+str(n));
             return True;
         else:
+            print("it is not a prime");
             return False;
 
             
