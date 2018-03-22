@@ -121,10 +121,9 @@ class Solution():
                     #s.push(fac)
                     n=n/fac;
         if(self.is_prime_fermat(n)):
-            print("findit: "+str(n))
+            #print("findit: "+str(n))
             if(n<self.bestSolutionFactor):
                 self.bestSolutionFactor=n;
-            #s.push(n);
                 return True;
             else:
                 return False;
