@@ -66,6 +66,8 @@ def fetchBest(rootdir):
                     #solutionDictionary[str(first)]=file;
     solutionDictionary["bit"]=bestbit;
     solutionDictionary["expo"]=bestexpo;
+    print("best bit: "+bestbit);
+    print("best expo: "+bestexpo);
     
 
 def main():
