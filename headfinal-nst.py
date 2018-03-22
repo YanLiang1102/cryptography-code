@@ -175,12 +175,12 @@ class Solution():
             if(self.find_factor_psudeo(testnumber,2,boundaryForPrime,s,self.moredepth)):
                 bestindex=i;
                 #print("I find one answer with offset expo of 10^"+str(self.expo)+"-range"+str(self.range1)+str(i));
-         result={};
-         result["best"]=self.bestSolutionFactor;
-         result["bit"]=log(self.bestSolutionFactor*1.0,2);
-         result["number"]=lowerbound+bestindex;
-         with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-range-"+str(self.rangestart).best', 'wb') as output:
-             pickle.dump(result, output, pickle.HIGHEST_PROTOCOL)         
+        result={};
+        result["best"]=self.bestSolutionFactor;
+        result["bit"]=log(self.bestSolutionFactor*1.0,2);
+        result["number"]=lowerbound+bestindex;
+        with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-range-"+str(self.rangestart).best', 'wb') as output:
+            pickle.dump(result, output, pickle.HIGHEST_PROTOCOL)         
         
 def main():
     splitrange=sys.argv[1]; #will be 10^6
