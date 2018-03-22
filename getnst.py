@@ -130,9 +130,9 @@ def fetchBest(rootdir,globalbest):
     solutionDictionary["best"]=globalbest
     solutionDictionary["expo"]=bestexpo;
     print("best bit: "+str(solutionDictionary["bit"]));
-    print("best expo: "+str(bestexpo));
+    print("best expo: "+str(bestexpo+1));
     print("best remaining is:"+str(globalbest));
-    getFactorizationBest(bestexpo,p);
+    getFactorizationBest(bestexpo+1,p);
   
 def main():
     rootdir=sys.argv[1]
