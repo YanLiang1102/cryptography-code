@@ -82,6 +82,7 @@ def find_factor_psudeo(n,fac,limit,moredepth):
                     print(fac)
                     n=n/fac;
         if(is_prime_fermat(n)):
+            print("yes it is prime: "+str(n));
             return True;
         else:
             return False;
