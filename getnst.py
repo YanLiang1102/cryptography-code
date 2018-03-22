@@ -3,6 +3,7 @@ from sage.all import *
 import os
 import random
 import string
+import math
 
 class Stack():
     def __init__(self):
@@ -44,7 +45,7 @@ def findTheRealSmallestPrime(rootdir,globalbest):
     with open(rootdir+"/best-"+randomstring+".best", 'wb') as output:
                         pickle.dump(solutionDictionary, output, pickle.HIGHEST_PROTOCOL)
                         print(rootdir+"/best-"+randomstring+".best")
-def fetchBest(rootdir):
+def fetchBest(rootdir,globalbest):
     solutionDictionary={}
     bestbit=1024;
     #looping through all the files under the dir
@@ -53,20 +54,21 @@ def fetchBest(rootdir):
                  currentfile=os.path.join(subdir,file)
                  with open(currentfile,'rb') as inputdata:
                     data1=pickle.load(inputdata)
-                    bit=data1["bit"];
+                    best=data1["best"];
                     expo=data1["number"]
                     #print(first)
                     #if first.is_prime():
                         #print("yes")
-                    if bit<bestbit:
-                        bestbit=bit
+                    if best<globalbest:
+                        globalbest=best;
                         bestexpo=expo;
                         #bestfile=currentfile
                     #solutioncount=solutioncount+1;
                     #solutionDictionary[str(first)]=file;
-    solutionDictionary["bit"]=bestbit;
+    solutionDictionary["bit"]=math.log(globalbest*1.0,2);
+    solutionDictionary["best"]=globalbest
     solutionDictionary["expo"]=bestexpo;
-    print("best bit: "+str(bestbit));
+    print("best bit: "+str(solutionDictionary["bit"]));
     print("best expo: "+str(bestexpo));
     
 
@@ -74,6 +76,6 @@ def main():
     rootdir=sys.argv[1]
     globalbest=179769313486231590770839156793787453197860296048756011706444423684197180216158519368947833795864925541502180565485980503646440548199239100050792877003355816639229553136239076508735759914822574862575007425302077447712589550957937778424442426617334727629299387668709205606050270810842907692932019128194467627007;
     #findTheRealSmallestPrime(rootdir,globalbest)
-    fetchBest(rootdir);
+    fetchBest(rootdir,globalbest);
 if __name__ == "__main__":
     main()
