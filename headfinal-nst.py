@@ -179,7 +179,7 @@ class Solution():
         result["best"]=self.bestSolutionFactor;
         result["bit"]=log(self.bestSolutionFactor*1.0,2);
         result["number"]=lowerbound+bestindex;
-        with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-range-"+str(self.rangestart).best', 'wb') as output:
+        with open(datadir+'/fromtotal-'+str(self.splitfrom)+"-into-"+str(self.splitrange)+"-range-"+str(self.rangestart)+".best", 'wb') as output:
             pickle.dump(result, output, pickle.HIGHEST_PROTOCOL)         
         
 def main():
