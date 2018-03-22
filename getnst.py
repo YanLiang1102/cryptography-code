@@ -104,7 +104,7 @@ def is_prime_fermat(n):
                 return False;
 def fetchBest(rootdir,globalbest):
     solutionDictionary={}
-    bestbit=1024;
+    p=globalbest;
     #looping through all the files under the dir
     for subdir, dirs, files in os.walk(rootdir):
             for file in files:
@@ -122,6 +122,7 @@ def fetchBest(rootdir,globalbest):
     print("best bit: "+str(solutionDictionary["bit"]));
     print("best expo: "+str(bestexpo));
     print("best remaining is:"+str(globalbest));
+    getFactorizationBest(bestexpo,p);
 def getFactorizationBest(bestexpo,p):
     R=Integers(p);
     data=(R(2)^bestexpo).lift();
