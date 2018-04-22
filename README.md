@@ -90,8 +90,7 @@ def main():
     sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,moredepth);
     sol.execute();
 ```
-
-Lattice Attack using BKZ,
+## Lattice Attack using BKZ
 so the idea here is to explore S'
 and build Matrix mm for S' if we can find the solution by using BKZ provided by sage
 and then do S-S' and find the smallest one,
