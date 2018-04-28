@@ -1,0 +1,11 @@
+#!/bin/bash
+sage bkz.py 0 &
+sage bkz.py 1 &
+sage bkz.py 2 &
+sage bkz.py 3 &
+sage bkz.py 4 &
+sage bkz.py 5 &
+sage bkz.py 6 &
+sage bkz.py 7 &
+sage bkz.py 8 &
+sage bkz.py 9 &

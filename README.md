@@ -90,7 +90,12 @@ def main():
     sol=Solution(dir1,10**7,10**intsplitrange,10**intsplitfrom,int(rangestart),False,moredepth);
     sol.execute();
 ```
-
-
-
+## Lattice Attack using BKZ
+so the idea here is to explore S'
+and build Matrix mm for S' if we can find the solution by using BKZ provided by sage
+and then do S-S' and find the smallest one,
+my goal is to do 10^80--10^88
+so I need to explore all the (10^8-1)*10^8+ target to see if sage can find a solution for those
+which we know the first vector returned by sage is the svp solution and out dimension is 101, and last one is 0, 
+and previous one is either positive or negative so we look forward to see if the vector length is 10.
 

@@ -166,17 +166,57 @@ def main():
  59,
  60,
  64];
+    left2=[0,
+ 1,
+ 3,
+ 5,
+ 6,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 15,
+ 18,
+ 21,
+ 22,
+ 26,
+ 27,
+ 28,
+ 29,
+ 33,
+ 35,
+ 36,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 48,
+ 51,
+ 52,
+ 53,
+ 55,
+ 58,
+ 61,
+ 62,
+ 63]
  #seperate into 2^5=0,1,2,...31 thread to do so each thread will handle 2^25
     sumInMemory=[]
-    start=(2**25)*intindex
-    for i in range(start,(2**25)+start):
+    start=(2**30)*intindex
+    for i in range(start,(2**30)+start):
         t=intToB(i)
         data=0;
         for i in range(len(t)-1,-1,-1):
-            data=data+((int)(t[i]))*mlist[fixed[i]];
+            data=data+((int)(t[i]))*mlist[left2[i]];
         sumInMemory.append(data);
-    with open('/home/yan/crypdata/fixed'+str(intindex)+".data", 'wb') as handle:
+    with open('/home/yan/cryptography-code/explore'+str(intindex)+".data", 'wb') as handle:
         pickle.dump(sumInMemory, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    # sum1=0
+    # for i in range(0,100):
+    #     sum1=sum1+mlist[i]*ar[i]
+    # target=2*112889478*(10**94);
+    # remain=sum1-target;
 
 
 if __name__ == "__main__":
